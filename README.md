@@ -21,7 +21,7 @@ Explorando um pouco do dataset podemos encontrar 10 classes :
 
 Podem ser melhor visualizadas com:
 
-![Alt text](/animal_classify/assets/image.png)
+![Alt text](https://github.com/hramos94/animal_classify/blob/main/assets/image.png)
 
 
 Como há um desbalanço entre as classes, se utilizou de uma estratégia de diminuir a quantidade das imagens das classes que continham mais imagens, ou seja, limitou-se o nº de imagens em 2000/classe.
@@ -33,7 +33,7 @@ A rede utilizada foi uma vgg16 pre treinada com os pesos da IMAGINENET1K_V1. Mas
 2) Uma rede pre treinada pode ser utilizada como um ponto de partida para executar tarefas customizadas, por meio do transfer learning, congela-se as camadas inferiores (convoluções) e somente as camadas mais superiores (classificação) são retreinadas com um dataset personalizado.
 3) Permite uma melhor generalização das inferências, entre outras vantagens.
 
-![Alt text](/animal_classify/assets/image-1.png)
+![Alt text](https://github.com/hramos94/animal_classify/blob/main/assets/image-1.png)
 
 ## Treinamento
 O treinamento da rede com transfer learning foi feito no notebook do Kaggle, já que ele possui uma GPU estável, permitando melhores aproveitamentos dos valores de treino (batch, workers etc). 
