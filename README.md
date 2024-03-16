@@ -41,7 +41,7 @@ O notebook se encontra no link [https://www.kaggle.com/code/heitorleiteramos/ani
 
 
 # Como utilizar
-1) baixe o arquivo zip "animals_classify.zip"
+1) baixe o arquivo zip "animals_classify.zip", como o arquivo, mesmo zipado, é muito grande para o github, ele se encontra no drive: [https://drive.google.com/drive/folders/1WJug_bBn82JwYcVACIFt9k-qOHEtXuNA?usp=sharing](https://drive.google.com/drive/folders/1WJug_bBn82JwYcVACIFt9k-qOHEtXuNA?usp=sharing)
 2) descompacte o zip na mesma pasta do animals_classify
 3) execute o main
 4) Clique no botão "Selecionar Diretório"
