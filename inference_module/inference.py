@@ -36,20 +36,19 @@ class Inference:
             # self.model, _ = vgg_model()
             self.model.eval()
             with torch.inference_mode():
-                device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-                custom_image_transformed_with_batch_size = custom_image_transformed.unsqueeze(dim=0)
-            
-                # Make a prediction on image with an extra dimension
+                device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')            
+                # Fazer a prediçao na imagem
                 custom_image_pred = self.model(custom_image_transformed.unsqueeze(dim=0).to(device))
-                # print(torch.max(custom_image_pred))
 
-                # Convert logits -> prediction probabilities (using torch.softmax() for multi-class classification)
+                # usando softmax para multiclass predição, vai encontrar a melhor probabilidade para cada classe
                 custom_image_pred_probs = torch.softmax(custom_image_pred, dim=1)
 
-                # Convert prediction probabilities -> prediction labels
+                # converte a probabilidade de classe em nomes da classe, usaremos isso para o csv
                 custom_image_pred_label = torch.argmax(custom_image_pred_probs, dim=1)
-                custom_image_pred_class = self.class_names[custom_image_pred_label.cpu()] # put pred label to CPU, otherwise will error
+                custom_image_pred_class = self.class_names[custom_image_pred_label.cpu()] 
                 
+                # como nao houve treinamento com uma classe "nenhum", atribui-se ao baixo valor
+                # de probabilidade para dizer que nao é um animal
                 if torch.max(custom_image_pred) < 5:
                     custom_image_pred_class = "Nenhum"
                 inferencia.append(custom_image_pred_class)
